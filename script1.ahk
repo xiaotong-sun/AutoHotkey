@@ -46,7 +46,3 @@ CapsLock & Q::
 	if (activeTitle != "")
 		WinClose "A"
 }
-
-; CapsLock+c 代替 CTRL+c
-CapsLock & C::^C
-CapsLock & V::^V
