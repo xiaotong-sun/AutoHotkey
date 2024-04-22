@@ -68,3 +68,6 @@ CapsLock & q::
 	if (activeTitle != "")
 		WinClose "A"
 }
+
+; 小米笔记本重新利用小爱按钮
+$vkFF::Send DllCall("user32.dll\LockWorkStation")
