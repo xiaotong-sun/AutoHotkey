@@ -2,7 +2,19 @@
 
 ; #=Win    !=Alt    ^=Ctrl    +=Shift
 
+; 按键替换
 CapsLock::Esc
+!k::Up
+!j::Down
+!h::Left
+!l::Right
+!u::!Up
+!a::^a
+!c::^c
+!v::^v
+!z::^z
+!x::^x
+!s::^s
 
 ; 废除CapsLock直接切换大小写锁定的功能
 SetCapsLockState "AlwaysOff"
@@ -15,12 +27,11 @@ CapsLock & Esc::{
         SetCapsLockState "AlwaysOn"
 }
 
-
 ; 清空回收站
 #Del::FileRecycleEmpty ; win + del
 
 ; 最大化当前活动窗口
-CapsLock & K::
+CapsLock & k::
 {
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
@@ -28,19 +39,30 @@ CapsLock & K::
 }
 
 ; 最小化当前窗口
-CapsLock & J::
+CapsLock & j::
 {
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
 		WinMinimize "A"
 }
 
+; 当前窗口打开终端
+#HotIf GetKeyState("Shift")
+CapsLock & t::
+{
+    Send "!d"
+    Sleep 50
+    Send "^c"
+    Sleep 100
+    Run "wt -d " A_Clipboard
+}
+#HotIf
 
-; 使用CapsLock + T 打开终端
-CapsLock & T::Run 'wt -d "C:\Users\84097\Desktop"'
+; 使用CapsLock + t 打开终端
+CapsLock & t::Run 'wt -d "C:\Users\84097\Desktop"'
 
 ; 关闭当前窗口
-CapsLock & Q::
+CapsLock & q::
 {
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
