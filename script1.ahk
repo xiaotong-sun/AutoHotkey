@@ -1,12 +1,14 @@
 ﻿#Requires AutoHotkey v2.0
 
-Capslock::Esc
+; #=Win    !=Alt    ^=Ctrl    +=Shift
 
-; 废除capslock直接切换大小写锁定的功能
+CapsLock::Esc
+
+; 废除CapsLock直接切换大小写锁定的功能
 SetCapsLockState "AlwaysOff"
 
-; 使用capslock+esc切换大写锁定
-Capslock & Esc::{
+; 使用CapsLock+esc切换大写锁定
+CapsLock & Esc::{
     If GetKeyState("CapsLock", "T") = 1
         SetCapsLockState "AlwaysOff"
     Else 
@@ -18,7 +20,7 @@ Capslock & Esc::{
 #Del::FileRecycleEmpty ; win + del
 
 ; 最大化当前活动窗口
-Capslock & K::
+CapsLock & K::
 {
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
@@ -26,7 +28,7 @@ Capslock & K::
 }
 
 ; 最小化当前窗口
-Capslock & J::
+CapsLock & J::
 {
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
@@ -34,13 +36,17 @@ Capslock & J::
 }
 
 
-; 使用capslock + T 打开终端
+; 使用CapsLock + T 打开终端
 CapsLock & T::Run 'wt -d "C:\Users\84097\Desktop"'
 
 ; 关闭当前窗口
-Capslock & Q::
+CapsLock & Q::
 {
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
 		WinClose "A"
 }
+
+; CapsLock+c 代替 CTRL+c
+CapsLock & C::^C
+CapsLock & V::^V
