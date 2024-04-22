@@ -15,6 +15,7 @@ CapsLock::Esc
 !z::^z
 !x::^x
 !s::^s
+^!a::^!a
 
 ; 废除CapsLock直接切换大小写锁定的功能
 SetCapsLockState "AlwaysOff"
