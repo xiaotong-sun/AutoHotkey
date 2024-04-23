@@ -60,7 +60,7 @@ CapsLock & t::
 #HotIf
 
 ; 使用CapsLock + t 打开终端
-CapsLock & t::Run 'wt -d "C:\Users\84097\Desktop"'
+CapsLock & t::Run 'wt -d ' A_Desktop
 
 ; 关闭当前窗口
 CapsLock & q::
