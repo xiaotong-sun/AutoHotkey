@@ -15,7 +15,11 @@ CapsLock::Esc
 !z::^z
 !x::^x
 !s::^s
+!/::^/
 ^!a::^!a
+
+CapsLock & h::Home
+CapsLock & l::End
 
 ; 废除CapsLock直接切换大小写锁定的功能
 SetCapsLockState "AlwaysOff"
@@ -45,6 +49,14 @@ CapsLock & j::
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
 		WinMinimize "A"
+}
+
+; 还原窗口大小
+CapsLock & n::
+{
+	activeTitle := WinGetTitle("A")
+	if (activeTitle != "")
+		WinRestore "A"
 }
 
 ; 当前窗口打开终端
