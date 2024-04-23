@@ -51,11 +51,9 @@ CapsLock & j::
 #HotIf GetKeyState("Shift")
 CapsLock & t::
 {
-    Send "!d"
-    Sleep 50
-    Send "^c"
-    Sleep 100
-    Run "wt -d " A_Clipboard
+	Path := WinGetTitle("A")
+	if (Path != "")
+		Run "wt -d " Path
 }
 #HotIf
 
