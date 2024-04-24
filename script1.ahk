@@ -4,18 +4,19 @@
 
 ; 按键替换
 CapsLock::Esc
-!k::Up
-!j::Down
-!h::Left
-!l::Right
-!u::!Up
-!a::^a
-!c::^c
-!v::^v
-!z::^z
-!x::^x
-!s::^s
-!/::^/
+<!k::Up
+<!j::Down
+<!h::Left
+<!l::Right
+<!u::!Up
+<!a::^a
+<!c::^c
+<!v::^v
+<!z::^z
+<!x::^x
+<!s::^s
+<!/::^/
+<!w::^w
 ^!a::^!a
 
 CapsLock & h::Home
@@ -71,6 +72,14 @@ CapsLock & t::
 
 ; 使用CapsLock + t 打开终端
 CapsLock & t::Run 'wt -d ' A_Desktop
+
+; 使用CapsLock + v 在当前文件夹下打开vscode
+CapsLock & v::
+{
+	activeTitle := WinGetTitle("A")
+	if (activeTitle != "")
+		Run "D:\Software\Microsoft VS Code\Code.exe " activeTitle
+}
 
 ; 关闭当前窗口
 CapsLock & q::
