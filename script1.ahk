@@ -19,6 +19,7 @@ CapsLock::Esc
 <!w::^w
 ^!a::^!a
 
+RAlt::Ctrl
 CapsLock & h::Home
 CapsLock & l::End
 
