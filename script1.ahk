@@ -18,6 +18,11 @@ CapsLock::Esc
 <!/::^/
 <!w::^w
 ^!a::^!a
+!+w::!+w
+!+l::!+l
+!+j::!+j
+!+k::!+k
+!+h::!+h
 
 RAlt::Ctrl
 CapsLock & h::Home
