@@ -72,7 +72,13 @@ CapsLock & t::
 {
 	Path := WinGetTitle("A")
 	if (Path != "")
-		Run "wt -d " Path
+		delimiter := " - 文件资源管理器"
+		position := InStr(Path, delimiter)
+		if (position)
+		{
+			Path := SubStr(Path, 1, position - 1)
+		}
+		Run 'wt -d ' Path
 }
 #HotIf
 
