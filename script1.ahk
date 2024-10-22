@@ -90,6 +90,13 @@ CapsLock & v::
 {
 	activeTitle := WinGetTitle("A")
 	if (activeTitle != "")
+		delimiter := " - 文件资源管理器"
+		position := InStr(activeTitle, delimiter)
+		if (position)
+		{
+			activeTitle := SubStr(activeTitle, 1, position - 1)
+		}
+
 		Run "D:\Software\Microsoft VS Code\Code.exe " activeTitle
 }
 
